@@ -1,0 +1,81 @@
+@black: #000000;
+@gray-1: #333333;
+@gray-2: #666666;
+@gray-3: #999999;
+@gray-4: #cccccc;
+@white: #ffffff;
+@cyan: #116DFF;
+@green: #3fff00;
+@yellow: #FFFF00;
+@red: #FA1100;
+
+.b-red     { border: 1px solid #f00; }
+.b-green   { border: 1px solid #0f0; }
+.b-blue    { border: 1px solid #00f; }
+.b-yellow  { border: 1px solid #ff0; }
+.b-magenta { border: 1px solid #f0f; }
+.b-cyan    { border: 1px solid #0ff; }
+
+.db( @r, @g, @b, @a:.4 ) { background-color: rgba( @r, @g, @b, @a ); }
+.db-red     { .db( 255, 0, 0 ); }
+.db-green   { .db( 0, 255, 0 ); }
+.db-blue    { .db( 0, 0, 255 ); }
+.db-yellow  { .db( 255, 255, 0 ); }
+.db-magenta { .db( 255, 0, 255 ); }
+.db-cyan    { .db( 0, 255, 255 ); }
+.db-white   { .db( 255, 255, 255 ); }
+.db-black   { .db( 0, 0, 0 ); }
+
+.clear {
+  &:after {
+    display:block;
+    content:"";
+    clear:both;
+  }
+}
+
+.transition( @prop:all, @time:.25s, @ease:linear, @delay:0s ) {
+  -webkit-transition: @prop @time @ease @delay;
+     -moz-transition: @prop @time @ease @delay;
+      -ms-transition: @prop @time @ease @delay;
+       -o-transition: @prop @time @ease @delay;
+          transition: @prop @time @ease @delay;
+}
+.transition-2props( @prop1, @prop2, @time:.25s, @ease:linear, @delay:0s ) {
+  -webkit-transition: @prop1 @time @ease @delay, @prop2 @time @ease @delay;
+     -moz-transition: @prop1 @time @ease @delay, @prop2 @time @ease @delay;
+      -ms-transition: @prop1 @time @ease @delay, @prop2 @time @ease @delay;
+       -o-transition: @prop1 @time @ease @delay, @prop2 @time @ease @delay;
+          transition: @prop1 @time @ease @delay, @prop2 @time @ease @delay;
+}
+.vert-2color-gradient( @color1, @pos1:0%, @color2, @pos2:100% ) {
+  background: @gray-1; 
+  background:    -moz-linear-gradient( top,  @color1 @pos1, @color2 @pos2 ); /* FF3.6-15 */
+  background: -webkit-linear-gradient( top,  @color1 @pos1, @color2 @pos2 ); /* Chrome10-25,Safari5.1-6 */
+  background:         linear-gradient( to bottom, @color1 @pos1, @color2 @pos2 ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@color1', endColorstr='@color2',GradientType=0 ); /* IE6-8 */
+}
+.border-radius( @radius: 5px ) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+
+     -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+          background-clip: padding-box;
+}
+.box-shadow( @horz:0px, @vert:0px, @blur:0px, @spread:0px, @color:#000, @opacity:.5 ) {
+    -webkit-box-shadow: @horz @vert @blur @spread rgba( red( @color ), green( @color ), blue( @color ), @opacity );
+       -moz-box-shadow: @horz @vert @blur @spread rgba( red( @color ), green( @color ), blue( @color ), @opacity );
+            box-shadow: @horz @vert @blur @spread rgba( red( @color ), green( @color ), blue( @color ), @opacity );
+}
+
+.middle {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.middle-center {
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}

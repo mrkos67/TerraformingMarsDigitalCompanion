@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="" class="loading">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/mars.css">
+
+</head>
+<body>
+
+  <header>
+    <nav id="hamburger">
+      <button id="main-menu-open"><span></span><span></span><span></span></button>
+    </nav>
+    <div id="terraform-rating">
+      <div class="rating"><span data-bind="text: state.rating.level.value()"></span></div>
+    </div>
+  </header>
+  <nav id="main-menu">
+    <div>
+      <button id="main-menu-close"><span></span><span></span></button>
+      <div>
+        <ul>
+          <li id="actions">
+            <h2>Actions</h2>
+            <ul>
+              <li><span>Play a card</span></li>
+              <li><span>Use a Standard Project</span></li>
+              <li><span>Claim a Milestone</span></li>
+              <li><span>Fund an Award</span></li>
+              <li><span>Use the Action on a Blue Card</span></li>
+              <li><a id="btn-action-convert-plants" data-bind="css:{ 'notavailable' : state.plants.resources.value() < 8 }"><span>Convert Plants to Greenery</span></a></li>
+              <li><a id="btn-action-convert-heat" data-bind="css:{ 'notavailable' : state.heat.resources.value() < 8 }"><span>Convert Heat to Temperature</span></a></li>
+            </ul>
+          </li>
+          <li id="phases">
+            <h2>Phases</h2>
+            <ul>
+              <li><span>Player Order</span></li>
+              <li><span>Research</span></li>
+              <li><span>Action</span></li>
+              <li><a id="btn-phase-production"><span>Production</span></a></li>
+            </ul>
+          </li>
+          <li id="new-game">
+            <h2>New Game</h2>
+            <ul>
+              <li><a id="btn-new-blank"><span>Blank</span></a></li>
+              <li><a id="btn-new-beginner"><span>Beginner Corporation</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section id="megacredits">
+    <!--<div class="change-level"><button></button><button></button></div>-->
+    <div class="production-level-value"><span data-bind="text: state.megacredits.level.value()"></span></div>
+    <div class="resource-value"><span data-bind="text: state.megacredits.resources.value()"></span></div>
+    <!--<div class="change-resources"><button></button><button></button></div>-->
+  </section>
+  <section id="steel">
+    <!--<div class="change-level"><button></button><button></button></div>-->
+    <div class="production-level-value"><span data-bind="text: state.steel.level.value()"></span></div>
+    <div class="resource-value"><span data-bind="text: state.steel.resources.value()"></span></div>
+    <!--<div class="change-resources"><button></button><button></button></div>-->
+  </section>
+  <section id="titanium">
+    <!--<div class="change-level"><button></button><button></button></div>-->
+    <div class="production-level-value"><span data-bind="text: state.titanium.level.value()"></span></div>
+    <div class="resource-value"><span data-bind="text: state.titanium.resources.value()"></span></div>
+    <!--<div class="change-resources"><button></button><button></button></div>-->
+  </section>
+  <section id="plants">
+    <!--<div class="change-level"><button></button><button></button></div>-->
+    <div class="production-level-value"><span data-bind="text: state.plants.level.value()"></span></div>
+    <div class="resource-value"><span data-bind="text: state.plants.resources.value()"></span></div>
+    <!--<div class="change-resources"><button></button><button></button></div>-->
+  </section>
+  <section id="energy">
+    <!--<div class="change-level"><button></button><button></button></div>-->
+    <div class="production-level-value"><span data-bind="text: state.energy.level.value()"></span></div>
+    <div class="resource-value"><span data-bind="text: state.energy.resources.value()"></span></div>
+    <!--<div class="change-resources"><button></button><button></button></div>-->
+  </section>
+  <section id="heat">
+    <!--<div class="change-level"><button></button><button></button></div>-->
+    <div class="production-level-value"><span data-bind="text: state.heat.level.value()"></span></div>
+    <div class="resource-value"><span data-bind="text: state.heat.resources.value()"></span></div>
+    <!--<div class="change-resources"><button></button><button></button></div>-->
+  </section>
+
+  <div id="update-screen" class="">
+    <div id="update-window">
+      <div id="update-title">
+        <h2 data-bind="text:'MegaCredits'"></h2>
+      </div>
+      <div id="update-value">
+        <div id="update-positive">
+          <button id="btn-plus-tens"></button>
+          <button id="btn-plus-ones"></button>
+        </div>
+        <div id="update-actual-value">
+          <div>
+            <span data-bind="text: selectedStateObservable()"></span>
+          </div>
+        </div>
+        <div id="update-negative">
+          <button id="btn-minus-tens"></button>
+          <button id="btn-minus-ones"></button>
+        </div>
+      </div>
+      <div id="update-buttons">
+        <button id="btn-update-okay">Okay</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/mars.js"></script>
+
+</body>
+</html>
